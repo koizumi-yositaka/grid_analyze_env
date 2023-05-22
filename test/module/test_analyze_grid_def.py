@@ -1,6 +1,12 @@
 import sys
 import os
-sys.path.append(os.getcwd())
+
+sys.path.append("/Users/koizumishuntakashi/Desktop/grid_analyze_env")
+
+
+'''
+test時はanalyze_grid_def.pyのfromにsrc.を追加する
+'''
 from src.module import analyze_grid_def
 import pytest
 import csv

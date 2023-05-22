@@ -26,7 +26,7 @@ class AnalyzeGrid(object):
         parent_folder_path=os.path.abspath(os.path.join(current_folder_path,os.pardir))
         grid_def=grid_def.replace('\n','')
         # JSONファイルを開く
-        with open(os.path.join(parent_folder_path,"data\\grid.json"), "r",encoding="utf-8") as f:
+        with open(os.path.join(parent_folder_path,"data/grid.json"), "r",encoding="utf-8") as f:
             # JSONデータを読み込む
             data = json.load(f)
             grid_def=self.delete_comment(grid_def)
