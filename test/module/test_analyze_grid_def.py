@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.append("/Users/koizumishuntakashi/Desktop/grid_analyze_env")
+sys.path.append(os.getcwd())
 
 
 '''
