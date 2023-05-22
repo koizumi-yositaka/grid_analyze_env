@@ -7,7 +7,7 @@ import re
 import sys
 
 sys.path.append(os.getcwd())
-from src.module import tool
+from module import tool
 '''
 定義文から、定義内容のJSONファイルを作成する
 '''  
