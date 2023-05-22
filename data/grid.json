@@ -1,0 +1,1312 @@
+{
+    "name": "grid",
+    "delimiter": "/",
+    "items": [
+        {
+            "option_id": "1_1",
+            "name": "dataGrid名",
+            "description": "",
+            "signature": "",
+            "exsample": "",
+            "isNeed": "true",
+            "delimiter": "!",
+            "options": [
+                {
+                    "option_id": "1_1_1",
+                    "name": "dataGrid名",
+                    "description": "dataGridT_XXXにする必要があり、XXXは自由。",
+                    "signature": "dataGridT_XXX",
+                    "exsample": "dataGridT_Sub",
+                    "isNeed": "true",
+                    "delimiter": ",",
+                    "options": ""
+                    
+                },
+                {
+                    "option_id": "1_1_2",
+                    "name": "初期表示、追加時、削除時の処理",
+                    "description": "画面開く時やグリッド行を削除又は新規挿入した時に、明細金額など再計算させる為の定義。グリッドの数値項（例えば、受注数）の合計値を親画面の合計項（受注数合計）やフッターにセットする。",
+                    "signature": "",
+                    "exsample": "項目1:値1~, 項目2:値2~, ・・・・　値xに、@DERS( @DE[グリッドの対象項目名])",
+                    "isNeed": "true",
+                    "delimiter": ",",
+                    "options": ""
+                    
+                },
+                {
+                    "option_id": "1_1_3",
+                    "name": "行削除時のセット定義",
+                    "description": "グリッド全行を削除した時に、合計金額（親）などをセットする定義",
+                    "signature": "??",
+                    "exsample": "項目1:値１,項目2:値2,・・・・",
+                    "isNeed": "true",
+                    "delimiter": ",",
+                    "options": ""
+                    
+                },
+                {
+                    "option_id": "1_1_4",
+                    "name": "イベント定義",
+                    "description": "EventDefs定義",
+                    "signature": "",
+                    "exsample": "対象コントロールID1,対象コントロールID2,・・・・",
+                    "isNeed": "true",
+                    "delimiter": ",",
+                    "options": ""
+                
+                },
+                {
+                    "option_id": "1_1_5",
+                    "name": "フォーム形式定義",
+                    "description": "フォーム形式の入力をする為の定義。定義すると、グリッド行の先頭に定義した名称のボタンが自動的に作られ、クリックすると、指定したUrl が開かれる",
+                    "signature": "{ボタンテキスト}~# {Url} ~= {フォーム項目リスト}",
+                    "exsample": "入力~#W10Autoedit.aspx?SID=A101&Class=KouteiMeisai&Title=明細入力",
+                    "isNeed": "true",
+                    "delimiter": "#@~=",
+                    "options": [
+                        {
+                            "option_id": "1_1_5_1",
+                            "name": "ボタンテキスト",
+                            "description": "",
+                            "signature": "文字",
+                            "exsample": "フォーム入力へ",
+                            "isNeed": "true",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_1_5_2",
+                            "name": "URL",
+                            "description": "仮想ディレクトリー形式で指定する。但し/の代わりに^を使用。Requestパラメータ付きでOK",
+                            "signature": "URL",
+                            "exsample": "^abc^def^FrmInput.aspx?A=a&B=b",
+                            "isNeed": "true",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_1_5_3",
+                            "name": "フォーム項目リストの書式",
+                            "description": "??",
+                            "signature": "",
+                            "exsample": "項目1,項目2,・・・",
+                            "isNeed": "false",
+                            "delimiter": ",",
+                            "options": ""
+                        }
+                    ]
+                },
+                {
+                    "option_id": "1_1_6",
+                    "name": "各列のスタイルの定義",
+                    "description": "各列のスタイルの定義",
+                    "delimiter": ",",
+                    "signature": [
+                        {
+                            "name": "列単位のスタイル設定",
+                            "signature": "",
+                            "description": "列単位のスタイル設定",
+                            "exsample": "列Index0=Style定義0,列Index1=Style定義1・・・",
+                            "delimiter": "~,",
+                            "options": ""
+                        },
+                        {
+                            "name": "行単位のスタイル設定",
+                            "signature": "",
+                            "description": "行単位のスタイル設定",
+                            "exsample": "@Item=Style定義",
+                            "delimiter": "~,",
+                            "options": ""
+                        },
+                        {
+                            "name": "ヘッダー、ボディ、フッター単位のスタイル設定",
+                            "signature": "",
+                            "description": "ヘッダー、ボディ、フッター単位のスタイル設定",
+                            "exsample": "@Set_H@項目1:値1/項目2:値2/・・・",
+                            "delimiter": "~,",
+                            "options": ""
+                        }
+                    ],
+                    "exsample": "",
+                    "isNeed": "false",
+                    "options":""
+                },
+                {
+                    "option_id": "1_1_7",
+                    "name": "グリッドスタイル・ページング機能の定義",
+                    "description": "グリッドスタイル・ページング機能の定義",
+                    "signature": "{Grid自体のItem部スタイルの定義} ~$ {Header部スタイルの定義} ~$ {Footer部スタイルの定義} ~$ {ページング定義} ~$ {Caption定義}",
+                    "exsample": "",
+                    "isNeed": "true",
+                    "delimiter": "$",
+                    "options": [
+                        {
+                            "option_id": "1_1_7_1",
+                            "name": "Grid自体のItem部スタイルの定義",
+                            "description": "Grid自体のItem部スタイルの定義",
+                            "signature": "Htmlのスタイル書式と同じ",
+                            "exsample": "",
+                            "isNeed": "true",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_1_7_2",
+                            "name": "Header部スタイルの定義",
+                            "description": "Header部スタイルの定義",
+                            "signature": "Htmlのスタイル書式と同じ",
+                            "exsample": "",
+                            "isNeed": "true",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_1_7_3",
+                            "name": "Footer部スタイルの定義",
+                            "description": "Footer部スタイルの定義",
+                            "signature": "Htmlのスタイル書式と同じ",
+                            "exsample": "",
+                            "isNeed": "true",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_1_7_4",
+                            "name": "ページング定義",
+                            "description": "ページング定義",
+                            "signature": "{ページング可否} ~# {PageSize} ~# {PagingMode ~= BackText ~; NextText ~# PagerPosition ~# Align",
+                            "exsample": "",
+                            "isNeed": "true",
+                            "delimiter": "#",
+                            "options": [
+                                {
+                                    "option_id": "1_1_7_4_1",
+                                    "name": "ページング可否",
+                                    "description": "",
+                                    "signature": "bool",
+                                    "exsample": "",
+                                    "isNeed": "true",
+                                    "delimiter": "",
+                                    "options": "",
+                                    "defaultVal": "false"
+                                },
+                                {
+                                    "option_id": "1_1_7_4_2",
+                                    "name": "PageSize",
+                                    "description": "ページング有効時、1ページのItem(行)数の定義。省略時は50",
+                                    "signature": "数値",
+                                    "exsample": "",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": "",
+                                    "condit": "ページング可否=true"
+                                    
+                                },
+                                {
+                                    "option_id": "1_1_7_4_3",
+                                    "name": "PagingMode",
+                                    "description": "ページングのモード",
+                                    "signature": "",
+                                    "exsample": "",
+                                    "isNeed": "true",
+                                    "delimiter": "=@;",
+                                    "options": [
+                                        {
+                                            "option_id": "1_1_7_4_3_1",
+                                            "name": "PagingMode",
+                                            "description": "",
+                                            "signature": "数値",
+                                            "exsample": "",
+                                            "isNeed": "true",
+                                            "delimiter": "",
+                                            "options": "",
+                                            "condit": "ページング可否=true",
+                                            "defaultVal":"Numeric"
+                                        },
+                                        {
+                                            "option_id": "1_1_7_4_3_2",
+                                            "name": "BackText",
+                                            "description": "ページングの一つ前のページに戻るボタンのテキスト。省略時は「<」",
+                                            "signature": "",
+                                            "exsample": "",
+                                            "isNeed": "true",
+                                            "delimiter": "",
+                                            "options": "",
+                                            "condit": "ページング可否=true"
+                                            
+                                        },
+                                        {
+                                            "option_id": "1_1_7_4_3_3",
+                                            "name": "NextText",
+                                            "description": "ページングの一つ先のページに移動するボタンのテキスト。省略時は「>」",
+                                            "signature": "",
+                                            "exsample": "",
+                                            "isNeed": "true",
+                                            "delimiter": "",
+                                            "options": "",
+                                            "condit": "ページング可否=true"
+                                         
+                                        }
+                                    ]
+                                },
+                                {
+                                    "option_id": "1_1_7_4_4",
+                                    "name": "PagerPosition",
+                                    "description": "ページャの表示位置。省略時は「Top」",
+                                    "signature": "Top/Button/TopAndBottom",
+                                    "exsample": "",
+                                    "isNeed": "true",
+                                    "delimiter": "",
+                                    "options": "",
+                                    "condit": "ページング可否=true",
+                                    "defaultVal":"Top"
+                                },
+                                {
+                                    "option_id": "1_1_7_4_5",
+                                    "name": "Align",
+                                    "description": "ページング数字又はボタンの表示位置。省略時は「Left」",
+                                    "signature": "Left/Center/Right",
+                                    "exsample": "",
+                                    "isNeed": "true",
+                                    "delimiter": "",
+                                    "options": "",
+                                    "condit": "ページング可否=true",
+                                    "defaultVal":"Left"
+                                }
+                            ]
+                        },
+                        {
+                            "option_id": "1_1_7_5",
+                            "name": "Caption定義",
+                            "description": "",
+                            "signature": "{Captionテキスト}~#{Align}",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "#",
+                            "options": [
+                                {
+                                    "option_id": "1_1_7_5_1",
+                                    "name": "Captionテキスト",
+                                    "description": "Captionテキスト",
+                                    "signature": "Html",
+                                    "exsample": "",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": "",
+                                    "condit": "ページング可否=true"
+                                },
+                                {
+                                    "option_id": "1_1_7_5_2",
+                                    "name": "Align",
+                                    "description": "Captionテキスト表示位置。省略時は「TopAndCenter」",
+                                    "signature": "Top/Button/TopAndBottom",
+                                    "exsample": "",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": "",
+                                    "condit": "ページング可否=true"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "option_id": "1_1_8",
+                    "name": "コマンドバーの設定",
+                    "description": "コマンドバーの設定",
+                    "signature": "{hasCommandBarオプション} $ {has一括取入れ機能要否} $ {取入れオプション} $ {取入れ対象シートIndex}",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": "$",
+                    "options": [
+                        {
+                            "option_id": "1_1_8_1",
+                            "name": "hasCommandBarオプション",
+                            "description": "コマンコマンドバーを追加するかどうか",
+                            "signature": "bool",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": "",
+                            "defaultVal": "false"
+                        },
+                        {
+                            "option_id": "1_1_8_2",
+                            "name": "has一括取入れ機能要否",
+                            "description": "True時、①のコマンドバーにインポートする為のボタンとFileコントロールが追加される",
+                            "signature": "bool",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": "",
+                            "defaultVal": "false"
+                        },
+                        {
+                            "option_id": "1_1_8_3",
+                            "name": "取入れオプション",
+                            "description": "取り入れのオプション",
+                            "signature": "Add/ClearInsert/DeleteInsert",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_1_8_4",
+                            "name": "取入れ対象シートIndex",
+                            "description": "Excelファイルのみ有効。対象シートIndexの指定",
+                            "signature": "",
+                            "exsample": "AIndex1,Index2,・・・　省略時、先頭シート（つまり、0）と見なされる",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": "",
+                            "condit": "Excel取り込み時"
+                        }
+                    ]
+                },
+                {
+                    "option_id": "1_1_9",
+                    "name": "Header設定",
+                    "description": "指定した列のHeader領域（Cell）に項目（コントロール）を生成する定義",
+                    "signature": "",
+                    "exsample": "対象列Index1 = コントロール定義1 ~, 対象列Index2 = コントロール定義2・・・・",
+                    "isNeed": "",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_1_10",
+                    "name": "Footer設定",
+                    "description": "指定した列のFooter領域（Cell）に項目（コントロール）を生成する定義",
+                    "signature": "",
+                    "exsample": "対象列Index1 = コントロール定義1 ~, 対象列Index2 = コントロール定義2・・・・",
+                    "isNeed": "true",
+                    "delimiter": ",",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_1_11",
+                    "name": "行追加時のカーソル設定",
+                    "description": "グリッドに新規行を追加した時に、カーソルをセットする項目の定義",
+                    "signature": "項目名",
+                    "exsample": "",
+                    "isNeed": "true",
+                    "delimiter": ",",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_1_12",
+                    "name": "バッチ処理用",
+                    "description": "「4.編集項目」に定義したフィールドの一つ又は複数は、入力したDEアクション関数を実行する特別フィールドの定義この項に「イベント定義」というフィールド名を定義しておくと、確定時、「イベント定義」というフィールドの値に例えば、@Exec(・・・)や@Export(・・・)などDE関数の記述が入っていたら実行される。この特質を上手く活用すれば、一括バッチ処理開発などに便利。",
+                    "signature": "",
+                    "exsample": "対象フィールド名1 , 対象フィールド名2 , ・・・",
+                    "isNeed": "true",
+                    "delimiter": ",",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_1_13",
+                    "name": "グリッド検索用定義",
+                    "description": "グリッド検索定義。⇒ グリッドデータ（レコード）が多い時に、特定グリッドデータを絞り込むに便利。定義すると、自動的に当グリッドの上部に検索項目と検索ボタンが生成されグリッドデータが絞り込める様になる",
+                    "signature": "",
+                    "exsample": "",
+                    "isNeed": "true",
+                    "delimiter": ",",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_1_14",
+                    "name": "固定列の定義",
+                    "description": "固定する列のIndexの指定。省略時は「1」",
+                    "signature": "数字",
+                    "exsample": "",
+                    "isNeed": "true",
+                    "delimiter": ",",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_1_15",
+                    "name": "ユニークチェック",
+                    "description": "ユニークのチェック。データ確定時、特定の項目(フィールド)又は複数項目の値は、グリッド内において複数行に存在したら不正とする（言わば値のユニックチェック）",
+                    "signature": "{フィールド値の配列}~# {重複エラーメッセージの定義} ~# {SQL条件オプション}",
+                    "exsample": "",
+                    "isNeed": "true",
+                    "delimiter": "#",
+                    "options": [
+                        {
+                            "option_id": "1_1_15_1",
+                            "name": "フィールド値の配列",
+                            "description": "ユニークのチェックを行うフィールド",
+                            "signature": "",
+                            "exsample": "フィールド名1 , フィールド名2 ・・・",
+                            "isNeed": "true",
+                            "delimiter": ",",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_1_15_2",
+                            "name": "重複エラーメッセージの定義",
+                            "description": "ユニークのチェックを行うフィールド",
+                            "signature": "{重複エラーメッセージの定義の書式}:{重複エラーメッセージの定義} ~| {同時に実行する処理}",
+                            "exsample": "Holiday ~# 同一日付(@Grid_~Format({0:yyyy/MM/dd},@Grid_~{Holiday}))の重複登録ができません！~| @DEFocus( @PreName@Holiday)",
+                            "isNeed": "true",
+                            "delimiter": "|",
+                            "options": [
+                                {
+                                    "option_id": "1_1_15_2_1",
+                                    "name": "重複エラーメッセージの定義",
+                                    "description": "重複エラーメッセージの定義",
+                                    "signature": "DE関数",
+                                    "exsample": "",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": ""
+                                },
+                                {
+                                    "option_id": "1_1_15_2_2",
+                                    "name": "同時に実行する処理",
+                                    "description": "同時に実行する処理",
+                                    "signature": "DE関数",
+                                    "exsample": "",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": ""
+                                }
+                            ]
+                        },
+                        {
+                            "option_id": "1_1_15_3",
+                            "name": "SQLの条件",
+                            "description": "sql",
+                            "signature": "SQLの条件",
+                            "exsample": "",
+                            "isNeed": "true",
+                            "delimiter": "",
+                            "options": ""
+                        }
+                    ]
+                },
+                {
+                    "option_id": "1_1_16",
+                    "name": "検索機能",
+                    "description": "当該グリッドに対しての検索機能の定義",
+                    "signature": "{絞り込み条件} ~/ {日付期間の定義}~#{オプション} ~/ {曖昧検索SQL文の定義} ~/ {その他組合せ検索キー項の定義}・・・",
+                    "exsample": "",
+                    "isNeed": "true",
+                    "delimiter": "/",
+                    "options": [
+                        {
+                            "option_id": "1_1_16_1",
+                            "name": "絞り込み条件",
+                            "description": "絞り込み条件",
+                            "signature": "{CheckBoxList絞り込み条件}~#{RadioButtonList絞り込み条件}",
+                            "exsample": "",
+                            "isNeed": "true",
+                            "delimiter": "#",
+                            "options": [
+                                {
+                                    "option_id": "1_1_16_1_1",
+                                    "name": "CheckBoxList絞り込み条件",
+                                    "description": "CheckBoxList絞り込み条件",
+                                    "signature": "",
+                                    "exsample": "国内依頼分 ; 依頼区分='A01' , 国外依頼分 ; 依頼区分='A02' ,",
+                                    "isNeed": "true",
+                                    "delimiter": ",",
+                                    "options": ""
+                                },
+                                {
+                                    "option_id": "1_1_16_1_2",
+                                    "name": "RadioButtonList絞り込み条件",
+                                    "description": "RadioButtonList絞り込み条件",
+                                    "signature": "",
+                                    "exsample": "国内依頼分 ; 依頼区分='A01' , 国外依頼分 ; 依頼区分='A02' ,",
+                                    "isNeed": "false",
+                                    "delimiter": ",",
+                                    "options": ""
+                                }
+                            ]
+                        },
+                        {
+                            "option_id": "1_1_16_2",
+                            "name": "日付期間の定義",
+                            "description": "日付期間の定義",
+                            "signature": "{日付期間}~#{デフォルト期間の指定}",
+                            "exsample": "依頼日,出荷日~#今年",
+                            "isNeed": "false",
+                            "delimiter": "#",
+                            "options": [
+                                {
+                                    "option_id": "1_1_16_2_1",
+                                    "name": "日付期間",
+                                    "description": "デフォルト期間の指定",
+                                    "signature": "??",
+                                    "exsample": "依頼日,出荷日・・・",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": ""
+                                },
+                                {
+                                    "option_id": "1_1_16_2_2",
+                                    "name": "デフォルト期間の指定",
+                                    "description": "デフォルト期間の指定",
+                                    "signature": "??",
+                                    "exsample": "今年",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": ""
+                                }
+                            ]
+                        },
+                        {
+                            "option_id": "1_1_16_3",
+                            "name": "曖昧検索SQL文の定義",
+                            "description": "曖昧検索SQL文の定義",
+                            "signature": "SQLの条件",
+                            "exsample": "お客様名 like '%@Value1%' or 商品名 like '%@Value1%' or 出荷先 like '%@Value1%' or ・・・",
+                            "isNeed": "false",
+                            "delimiter": ",",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_1_16_4",
+                            "name": "その他組合せ検索キー項の定義",
+                            "description": "その他組合せ検索キー項の定義",
+                            "signature": "Creator",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": ",",
+                            "options": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "option_id": "1_2",
+            "name": "テーブル名、ビュー名",
+            "description": "",
+            "signature": "{テーブル名},{ビュー名1};{ビュー名2},{複製要},{履歴記録時の対象テーブル名の定義},{履歴記録時の対象テーブルの当該TargetDBの定義},{再バインド}",
+            "exsample": "RECEIVE_DETAIL_TBL,RECEIVE_DETAIL_TBL_V",
+            "isNeed": "true",
+            "delimiter": ";",
+            "options": [
+                {
+                    "option_id": "1_2_1",
+                    "name": "メインエリア",
+                    "description": "",
+                    "signature": "",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": ",",
+                    "options": [
+                        {
+                            "option_id": "1_2_1_1",
+                            "name": "テーブル名",
+                            "description": "テーブル名",
+                            "signature": "文字列",
+                            "exsample": "RECEIVE_DETAIL_TBL",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_2_1_2",
+                            "name": "ビュー名",
+                            "description": "ビュー名",
+                            "signature": "文字列",
+                            "exsample": "RECEIVE_DETAIL_TBL_V",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        }
+                    ]
+                },
+                {
+                    "option_id": "1_2_2",
+                    "name": "オプションエリア",
+                    "description": "",
+                    "signature": "",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": ",",
+                    "options": [
+                        {
+                            "option_id": "1_2_2_1",
+                            "name": "ビュー名2",
+                            "description": "詳細ページグリッドのビューが、入力ページのグリッドと異なる場合に定義する。フィールド名、順序、個数は、入力ページのグリッド用のビューと同じにする",
+                            "signature": "文字列",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_2_2_2",
+                            "name": "複製要",
+                            "description": "Trueを設定した時に、複製要の意味。つまり、カレント親のレコード内容がコピーされる。省略時は「false」非表示項目",
+                            "signature": "bool",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_2_2_3",
+                            "name": "履歴記録時の対象テーブル名の定義",
+                            "description": "履歴記録時の対象テーブル名の定義",
+                            "signature": "文字列",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_2_2_4",
+                            "name": "履歴記録時の対象テーブルの当該TargetDBの定義",
+                            "description": "省略すると、カレントTargetDBになる",
+                            "signature": "文字列",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                            
+                        },
+                        {
+                            "option_id": "1_2_2_5",
+                            "name": "再バインド",
+                            "description": "省略又はtrueを設定すると、確定後データを画面に再セット時、当グリッドは、再バインドされる。廃止項目",
+                            "signature": "bool",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "option_id": "1_3",
+            "name": "子テーブルの主キー",
+            "description": "子テーブルの主キー",
+            "signature": "",
+            "exsample": "",
+            "isNeed": "true",
+            "delimiter": "",
+            "options": ""
+        },
+        {
+            "option_id": "1_4",
+            "name": "編集項目",
+            "description": "グリッド上に表示する項目をCreater構文で記述する",
+            "signature": "Creater",
+            "exsample": "",
+            "isNeed": "true",
+            "delimiter": ",",
+            "options": ""
+        },
+        {
+            "option_id": "1_5",
+            "name": "接続名",
+            "description": "カレントＤＢと異なる場合に記述",
+            "signature": "Creater",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "",
+            "options": ""
+        },
+        {
+            "option_id": "1_6",
+            "name": "レコード行追加・編集・削除許可否の定義",
+            "description": "",
+            "signature": "",
+            "exsample": "true:true:true:true",
+            "isNeed": "false",
+            "delimiter": ":",
+            "options": [
+                {
+                    "option_id": "1_6_1",
+                    "name": "レコード行追加可否エリア",
+                    "description": "GridのFooterを表示するかどうか",
+                    "signature": "{レコード行追加可否}={新規又は挿入許可論理演算式オプション}={新規又は挿入許した後の値セット定義オプション}",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": "=",
+                    "options": [
+                        {
+                            "option_id": "1_6_1_1",
+                            "name": "レコード行追加可否",
+                            "description": "falseにした場合は、自動的に行追加も削除も出来なくなる",
+                            "signature": "レコード行を追加するか",
+                            "exsample": "true",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "defaultVal": "true",
+                            "options":""
+                        },
+                        {
+                            "option_id": "1_6_1_2",
+                            "name": "新規又は挿入許可論理演算式オプション",
+                            "description": "新規又は挿入許可論理演算式オプション",
+                            "signature": "{論理演算式}${不成立時のメッセージ}",
+                            "exsample": "true",
+                            "isNeed": "false",
+                            "delimiter": "$",
+                            "defaultVal": "true",
+                            "options": [
+                                {
+                                    "option_id": "1_6_1_2_1",
+                                    "name": "論理演算式",
+                                    "description": "",
+                                    "signature": "bool",
+                                    "exsample": "true",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": ""
+                                },
+                                {
+                                    "option_id": "1_6_1_2_2",
+                                    "name": "不成立時のメッセージ",
+                                    "description": "新規又は挿入許可論理演算式オプション",
+                                    "signature": "bool",
+                                    "exsample": "true",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": ""
+                                }
+                            ]
+                        },
+                        {
+                            "option_id": "1_6_1_3",
+                            "name": "新規又は挿入許した後の値セット定義オプション",
+                            "description": "新規又は挿入許した後の値セット定義オプション",
+                            "signature": "",
+                            "exsample": "項目1 : 値1, 項目2 : 値2, ・・・",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        }
+                    ]
+                },
+                {
+                    "option_id": "1_6_2",
+                    "name": "レコード行編集可否",
+                    "description": "falseにした場合は、自動的に行追加も削除も出来なくなる",
+                    "signature": "bool",
+                    "exsample": "true",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "defaultVal": "true",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_6_3",
+                    "name": "レコード行削除可否エリア",
+                    "description": "レコードの行を削除するかどうか",
+                    "signature": "{レコード削除可否}={削除許可論理演算式オプション}",
+                    "exsample": "true",
+                    "isNeed": "false",
+                    "delimiter": "=",
+                    "defaultVal": "true",
+                    "options": [
+                        {
+                            "option_id": "1_6_3_1",
+                            "name": "レコード削除可否",
+                            "description": "レコードの行を削除するかどうか",
+                            "signature": "",
+                            "exsample": "true",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "defaultVal": "true",
+                            "options":""
+                        },
+                        {
+                            "option_id": "1_6_3_2",
+                            "name": "削除許可論理演算式オプション",
+                            "description": "",
+                            "signature": "{論理演算式}~${不成立時のメッセージ}",
+                            "exsample": "true",
+                            "isNeed": "false",
+                            "delimiter": "$",
+                            "options":[
+                                {
+                                    "option_id": "1_6_3_2_1",
+                                    "name": "論理演算式",
+                                    "description": "新規又は挿入許可論理演算式オプション",
+                                    "signature": "bool",
+                                    "exsample": "true",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": ""
+                                },
+                                {
+                                    "option_id": "1_6_3_2_2",
+                                    "name": "不成立時のメッセージ",
+                                    "description": "新規又は挿入許可論理演算式オプション",
+                                    "signature": "bool",
+                                    "exsample": "true",
+                                    "isNeed": "false",
+                                    "delimiter": "",
+                                    "options": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "option_id": "1_6_4",
+                    "name": "レコード行挿入可否",
+                    "description": "trueを設定した場合は、フッターに「複写（対象行の下へ挿入）」と「複写（末尾へ挿入）」の2つのボタンが表示され有効になる。",
+                    "signature": "bool",
+                    "exsample": "true",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "defaultVal": "false",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_6_5",
+                    "name": "ボタン位置の定義",
+                    "description": "上記ボタンを配置する位置。Top時、当該グリッドの上部に配置される。省略又はFooter時、当該グリッドのフッター（Footer）に配置され",
+                    "signature": "Top/Footer",
+                    "exsample": "true",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "defaultVal": "Footer",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_6_6",
+                    "name": "変更のDB反映可否",
+                    "description": "falseを指定すると、変更したグリッドデータは、DBへ反映せず",
+                    "signature": "bool",
+                    "exsample": "true",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "defaultVal": "true",
+                    "options": ""
+                }
+            ]
+        },
+        {
+            "option_id": "1_7",
+            "name": "Grid行生成時値セットの定義",
+            "description": "Grid行生成時値セットの定義",
+            "signature": "",
+            "exsample": "対象フィールド1:値1,対象フィールド2:値2,・・・ ",
+            "isNeed": "false",
+            "delimiter": ",",
+            "options": ""
+        },
+        {
+            "option_id": "1_8",
+            "name": "リレーションキー（親）",
+            "description": "親テーブルとリンクする為の項目名の設定。未設定時、自動的に親テーブル（例:T_T_Main）の主キー例えば、Aになる。",
+            "signature": "文字列",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "",
+            "options": ""
+        },
+        {
+            "option_id": "1_9",
+            "name": "リレーションキー（子）",
+            "description": "親テーブルのプライマリーキーは複数時例えば、A,B,C時、この項では、そのA,B,Cに対応した子テーブルの当該フィールド名を同じ順序で定義する(カンマ区切で)。例えば、X,Y,Z",
+            "signature": "文字列",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "",
+            "options": ""
+        },
+        {
+            "option_id": "1_10",
+            "name": "在庫管理機能についての定義",
+            "description": "在庫管理は使わない",
+            "signature": "文字列",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "",
+            "options": ""
+        },
+        {
+            "option_id": "1_11",
+            "name": "その他SQL条件",
+            "description": "SQL文の条件の外だし",
+            "signature": "{常に適用するSQL条件文}~!{ページ初回開く時にのみ適用するSQL条件文}",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "!",
+            "options": [
+                {
+                    "option_id": "1_11_1",
+                    "name": "常に適用するSQL条件文",
+                    "description": "常に適用するSQL条件文",
+                    "signature": "SQLの条件",
+                    "exsample": "区分='計画'",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_11_2",
+                    "name": "ページ初回開く時にのみ適用するSQL条件文",
+                    "description": "ページ初回開く時にのみ適用するSQL条件文",
+                    "signature": "SQLの条件",
+                    "exsample": "区分='計画'",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                }
+            ]
+        },
+        {
+            "option_id": "1_12",
+            "name": "確定時その他値設定定義",
+            "description": "データ編集確定時と同時にその他値セットの定義",
+            "signature": "文字列",
+            "exsample": "フィールド名1:値1,フィールド名2:値2・・・・",
+            "isNeed": "false",
+            "delimiter": ",",
+            "options": ""
+        },
+        {
+            "option_id": "1_13",
+            "name": "新規時にクリアするか",
+            "description": "trueの場合は、常にクリアする",
+            "signature": "bool",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": ",",
+            "options": "",
+            "defaultVal": "true"
+        },
+        {
+            "option_id": "1_14",
+            "name": "Logを記録するかどうか",
+            "description": "Logを記録するかどうか",
+            "signature": "bool",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": ",",
+            "options": "",
+            "defaultVal": "false"
+        },
+        {
+            "option_id": "1_15",
+            "name": "ソート",
+            "description": "ソートを行うフィールド名",
+            "signature": "文字列",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "",
+            "options": ""
+        },
+        {
+            "option_id": "1_16",
+            "name": "表示位置",
+            "description": "Tab名とは、T_M4A1TItemのUses項にInsertTabが設定されているNameをここに設定することで、当該SubGridをNameタブ内の最初の位置に表示する。T_M4A1TItemのUses項にDataGridが設定されているNameをここに設定することで、当該SubGridを任意の位置に表示する。",
+            "signature": "文字列",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "",
+            "options": ""
+        },
+        {
+            "option_id": "1_17",
+            "name": "2段表示設定",
+            "description": "複数列を２段１セルで表示する設定",
+            "signature": "文字列",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": ",",
+            "options": ""
+        },
+        {
+            "option_id": "1_18",
+            "name": "グリッドのサイズ",
+            "description": "",
+            "options":"",
+            "delimiter": "",
+            "signature": "??"
+        },
+        {
+            "option_id": "1_19",
+            "name": "確定時空レコード削除SQL条件",
+            "description": "確定時空レコード削除SQL条件",
+            "signature": "SQLの条件",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "",
+            "options": ""
+        },
+        {
+            "option_id": "1_20",
+            "name": "Grid同士のリンク定義（親子Grid）",
+            "description": "Grid同士のリンク定義（親子Grid）",
+            "signature": [
+                {
+                    "signature": "独自",
+                    "description": "親グリッド時のリンク定義",
+                    "delimiter": "$",
+                    "exsample": "リンクボタンＴｅｘｔ 1: リンクキー1=子Grid1,子Gridのリンクキー1 $ リンクボタンＴｅｘｔ 2:リンクキー2=子Grid2,子Gridのリンクキー2 $ ・・・・",
+                    "isNeed": "false",
+                    "options": ""
+                },
+                {
+                    "signature": "独自",
+                    "description": "子グリッド時のリンク定義",
+                    "delimiter": "",
+                    "exsample": "リンクキー.リレーションキー（子Grid）",
+                    "isNeed": "false",
+                    "options": ""
+                }
+            ],
+            "delimiter": "",
+            "isNeed": "false",
+            "options":""
+        },
+        {
+            "option_id": "1_21",
+            "name": "他テーブルへのレコード生成定義",
+            "description": "データ確定時、カレント親子構造のレコードを、カレント又は別の親子構造のテーブルに挿入作成する",
+            "signature": "{対象テーブル名}!{主キー名}!{接続名}!{自動採番定義}!{親番号名}!{SID,ClassとSQL条件}!{ソートキー}!{グループキー}!{数量項名}!{値セット定義}!{明細要}!{明細値セット定義}!{親とのリンクキー名}!{明細自動採番定}",
+            "exsample": "①対象テーブル名#オプション ! ②主キー名 ! ③接続名 ! ④自動採番定義 ! ⑤親番号名 ! ⑥SID,Class ~= ⑦SQL条件 ! ⑧ソートキー ! ⑨グループキー ! ⑩数量項名 !⑪値セット定義 !⑫明細要 ! ⑬明細値セット定義 ! ⑭親とのリンクキー名 ! ⑮明細自動採番定義 ~$ ①対象テーブル名 !・・・",
+            "isNeed": "false",
+            "delimiter": "!",
+            "options": [
+                {
+                    "option_id": "1_21_1",
+                    "name": "対象テーブル名項目",
+                    "description": "対象テーブル名の定義",
+                    "signature": "{対象テーブル名}#{親のレコード複製オプション}",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": "#",
+                    "options": [
+                        {
+                            "option_id": "1_21_1_1",
+                            "name": "対象テーブル名",
+                            "description": "対象テーブル名",
+                            "signature": "文字列",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_21_1_2",
+                            "name": "親のレコード複製オプション",
+                            "description": "trueを設定した時に、カレント親のレコードが複製される。省略時は「false」非表示項目",
+                            "signature": "bool",
+                            "exsample": "",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        }
+                    ]
+                },
+                {
+                    "option_id": "1_21_2",
+                    "name": "主キー名",
+                    "description": "主キー",
+                    "signature": "文字列",
+                    "exsample": "登録番号",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_3",
+                    "name": "接続名",
+                    "description": "省略可。省略すると、カレントの接続名となる",
+                    "signature": "文字列",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_4",
+                    "name": "自動採番定義",
+                    "description": "「共通」内の9.採番定義（SaibanDefs）項の書式と同じ",
+                    "signature": "独自",
+                    "exsample": "オーダ番号1=P1/////8",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_5",
+                    "name": "親番号名",
+                    "description": "省略可。束ねる為の項目名",
+                    "signature": "文字列",
+                    "exsample": "親登録番号",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_6",
+                    "name": "SID,ClassとSQL条件",
+                    "description": "",
+                    "signature": "{SID},{Class}~={SQL条件}",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": ",@~=",
+                    "options": [
+                        {
+                            "option_id": "1_21_6_1",
+                            "name": "SID",
+                            "description": "",
+                            "signature": "文字列",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_21_6_2",
+                            "name": "Class",
+                            "description": "",
+                            "signature": "文字列",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        },
+                        {
+                            "option_id": "1_21_6_3",
+                            "name": "SQL条件",
+                            "description": "",
+                            "exsample": "製番管理要=1",
+                            "signature": "SQLの条件",
+                            "isNeed": "false",
+                            "delimiter": "",
+                            "options": ""
+                        }
+                    ]
+                },
+                {
+                    "option_id": "1_21_7",
+                    "name": "ソートキー",
+                    "description": "省略可。当Gridのデータをソートさせる為の定義",
+                    "signature": "文字列",
+                    "exsample": "親登録番号",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_8",
+                    "name": "グループキー",
+                    "description": "省略可。定義すると、当明細行ごとではなく、グループキーに定義した項目の値が変わる時に、1レコードが「①対象テーブル名」に挿入される（つまり、その後同値の明細行が続いても新規レコード挿入せず）",
+                    "signature": "文字列",
+                    "exsample": "見積先",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_9",
+                    "name": "数量項名",
+                    "description": "省略可。数値型の項目名を定義すると、例えば、明細数量　に、３　が入ったら①T_T_Mainに3つの新規レコードが挿入され「⑫明細要」項にtrueが設定された場合は、明細テーブルにも当該明細データが1レコード挿入される（明細数量=1）",
+                    "signature": "文字列",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_10",
+                    "name": "値セット定義",
+                    "description": "",
+                    "signature": "設定項1:値1,設定項2:値2,・・・",
+                    "exsample": "CurrProcID:A01,新規登録日:@Date(),新規登録者:@User(UserName)",
+                    "isNeed": "false",
+                    "delimiter": ",",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_11",
+                    "name": "明細要",
+                    "description": "■true設定時、当明細(例:T_T_Main_Details)のレコードも暗黙で自動的にT_T_Main_Detailsに挿入される。例えば、カレント明細は、2行あった場合、新たに2行が生成され同カレント明細Gridに挿入される且つ、カレントT_T_Main（例: A001）に属される。注:挿入行数は実際は、「⑩数量項名」項の設定に依存する（詳細は上記の説明を参照）¥n■Y設定時、true時と同様だが、生成した明細レコードは、カレントT_T_Main（例:A001）ではなく、先頭の①対象テーブルによって新たに生成した親（例:T_T_Main）レコード（例:B001）に属される。",
+                    "signature": "true/Y/*",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "condit": "先頭の①対象テーブル=カレントmainDBTableの場合のみ",
+                    "options": "",
+                    "isDif": true
+                },
+                {
+                    "option_id": "1_21_12",
+                    "name": "明細値セット定義",
+                    "description": "*を定義すると、特別に画面又は(メインテーブル)の全てのフィールドの値がそれぞれ同名の項目xにセットされる。",
+                    "signature": "* , 項目1:値1,項目2:値2・・・",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": ",",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_13",
+                    "name": "親とのリンクキー名",
+                    "description": "明細テーブルにおける①テーブル名（親）とのリンクキー名の定義",
+                    "signature": "文字列",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                },
+                {
+                    "option_id": "1_21_14",
+                    "name": "明細自動採番定義",
+                    "description": "「共通」内の9.採番定義（SaibanDefs）項の書式と同じ",
+                    "signature": "文字列",
+                    "exsample": "",
+                    "isNeed": "false",
+                    "delimiter": "",
+                    "options": ""
+                }
+            ]
+        },
+        {
+            "option_id": "1_22",
+            "name": "不正チェック定義",
+            "description": "データ確定時、Ｇｒｉｄ各行に入力された値のチェックを行う。この項の制約事項は、一つでも不正が存在すると、後続の必須チェックが即中断される。",
+            "signature": "@checker",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "!",
+            "options": ""
+        },
+        {
+            "option_id": "1_23",
+            "name": "指定項連結値セット定義",
+            "description": "グリッドの特定項目の値を、指定した連結符号で連結し親テーブルの当該フィールドにセットする",
+            "signature": "独自",
+            "exsample": "K001 / K002 /K003 / ・・・ K00xはグリッドの行ごとの特定項目の値",
+            "isNeed": "false",
+            "delimiter": "!",
+            "options": ""
+        },
+        {
+            "option_id": "1_24",
+            "name": "マトリックス在庫管理時の入出庫定義",
+            "description": "",
+            "signature": "独自",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "",
+            "options": ""
+        },
+        {
+            "option_id": "1_25",
+            "name": "予約管理定義",
+            "description": "",
+            "signature": "独自",
+            "exsample": "",
+            "isNeed": "false",
+            "delimiter": "",
+            "options": ""
+        }
+    ]
+}
