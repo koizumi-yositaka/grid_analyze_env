@@ -23,7 +23,7 @@ class AnalyzeGrid(object):
         """
         grid_def=grid_def.replace('\n','')
         # JSONファイルを開く
-        with open("data/grid.json", "r",encoding="utf-8") as f:
+        with open("src/data/grid.json", "r",encoding="utf-8") as f:
             # JSONデータを読み込む
             data = json.load(f)
             grid_def=self.delete_comment(grid_def)
