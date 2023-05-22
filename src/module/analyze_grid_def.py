@@ -5,7 +5,7 @@ import re
 
 
 import sys
-sys.path.append("/Users/koizumishuntakashi/Desktop/grid_analyze_env")
+sys.path.append(os.getcwd())
 from src.module import tool
 '''
 定義文から、定義内容のJSONファイルを作成する

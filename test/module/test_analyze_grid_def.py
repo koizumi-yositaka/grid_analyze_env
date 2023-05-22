@@ -1,5 +1,6 @@
 import sys
-sys.path.append("/Users/koizumishuntakashi/Desktop/grid_analyze_env")
+import os
+sys.path.append(os.getcwd())
 from src.module import analyze_grid_def
 import pytest
 import csv
