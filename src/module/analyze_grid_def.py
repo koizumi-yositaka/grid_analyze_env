@@ -5,8 +5,9 @@ import re
 
 
 import sys
+
 sys.path.append(os.getcwd())
-from src.module import tool
+from module import tool
 '''
 定義文から、定義内容のJSONファイルを作成する
 '''  
@@ -21,14 +22,16 @@ class AnalyzeGrid(object):
         get_items関数で定義文の分解を行う
         分解され定義項目IDとvalueを要素としたdictがdef_dict_aryに追加されていく
         """
+        current_folder_path=os.path.abspath(os.path.dirname(__file__))
+        parent_folder_path=os.path.abspath(os.path.join(current_folder_path,os.pardir))
         grid_def=grid_def.replace('\n','')
         # JSONファイルを開く
-        with open("src/data/grid.json", "r",encoding="utf-8") as f:
+        with open(os.path.join(parent_folder_path,"data\\grid.json"), "r",encoding="utf-8") as f:
             # JSONデータを読み込む
             data = json.load(f)
             grid_def=self.delete_comment(grid_def)
             self.def_dict_ary=self.get_items(data,grid_def)
-            
+            return self.def_dict_ary
     
             
     def write(self,file_path):
