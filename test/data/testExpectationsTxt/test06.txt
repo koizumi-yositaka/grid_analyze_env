@@ -1,0 +1,1 @@
+value1~=OK~~~#value2~~$NG~~~$value3~~~=value4

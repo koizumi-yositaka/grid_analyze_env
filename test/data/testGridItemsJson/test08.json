@@ -1,0 +1,45 @@
+[
+  {
+    "grid_id": "1_1",
+    "defaultVal": "def1",
+    "delimiter": "#",
+    "options": [
+      {
+        "grid_id": "1_1_2",
+        "value": "value12",
+        "defaultVal": "def1",
+        "options": ""
+      },
+      {
+        "grid_id": "1_1_3",
+        "value": "value13",
+        "defaultVal": "def1",
+        "options": ""
+      },
+      {
+        "grid_id": "1_1_4",
+        "value": "value14",
+        "defaultVal": "def1",
+        "options": ""
+      }
+    ]
+  },
+  {
+    "grid_id": "1_2",
+    "value": "value2",
+    "defaultVal": "def1",
+    "options": ""
+  },
+  {
+    "grid_id": "1_3",
+    "value": "value3",
+    "defaultVal": "def1",
+    "options": ""
+  },
+  {
+    "grid_id": "1_4",
+    "value": "value4",
+    "defaultVal": "def1",
+    "options": ""
+  }
+]

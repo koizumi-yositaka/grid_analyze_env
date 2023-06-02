@@ -12,7 +12,7 @@ class BuildGridDef(object):
     def load_grid_items(self,str_input_json_data):
         self.input_json_data = json.loads(str_input_json_data) 
             
-    def set_value_to_grid_item(self,option_ary):
+    def get_options(self,option_ary):
         """
         optionsバリューが空文字でない場合にはこの項目がオプションを持っているとして再起的にこの関数を呼ぶ。
         optionsバリューが空文字の時は、値の設定されるはずの画面上の項目(最深の項目)だと判別し、get_value_from_inputdata_by_id関数を用いて値を取得する
@@ -29,7 +29,7 @@ class BuildGridDef(object):
         for option in option_ary:
             if "options" in option:
                 if option["options"]!="":
-                    self.set_value_to_grid_item(option["options"])
+                    self.get_options(option["options"])
                 else:
                     input_value=self.get_value_from_inputdata_by_id(option["option_id"])
                     delimiter="," if option["delimiter"]=="" else option["delimiter"]
@@ -54,8 +54,8 @@ class BuildGridDef(object):
 
     def build_options(self,options,delimiter):
         """ 
-        TODO set_value_to_grid_itemと統合できそう
-        set_value_to_grid_itemで設定された入力内容をもとに定義文を構築していく。
+        TODO get_optionsと統合できそう
+        get_optionsで設定された入力内容をもとに定義文を構築していく。
         
         optionsそれぞれで以下の処理を行う
             optionにvalueが設定されていない場合はその項目のoptionsとdelimiterを用いて再起的にこの関数を呼びvalueを設定する。
@@ -136,7 +136,7 @@ class BuildGridDef(object):
             data = json.load(f)
             grid_items=data["items"]
             #画面上の入力値を設定する
-            option_ary=self.set_value_to_grid_item(grid_items)
+            option_ary=self.get_options(grid_items)
 
             
             delimiter=data["delimiter"]

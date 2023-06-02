@@ -17,7 +17,7 @@ def get_options(grid_options,display_id_ary):
                              
                 display_id_ary.append(result_obj)
     return display_id_ary
-json_file="data/grid.json"
+json_file="src/data/grid.json"
 csv_file="management/grid.csv"
 with open(json_file,"r",encoding="utf-8") as f,open(csv_file,"w",encoding="utf-8") as c:
     data=json.load(f)

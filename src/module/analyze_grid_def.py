@@ -95,13 +95,14 @@ class AnalyzeGrid(object):
         protect_pattern_ary=[{"s":"{","e":"}"},{"s":"(","e":")"}]
    
         def_ary=self.get_def_ary(grid_def,delimiter,protect_pattern_ary)
-        #文末の空白と~を削除する
+        #文末の空白と~を削除するための正規表現
         pattern = r"\s*~\s*$"
         #値が全て空文字かどうか
         flag_all_empty=True
         for i in range(len(def_ary)):
-            
+            ##文末の空白と~を削除する
             def_ary[i] = re.sub(pattern, "", def_ary[i] )
+            #空白でない場合は、Flagを変更
             if def_ary[i]!="":flag_all_empty=False
     
         #子の定義項目がjsonデータにある場合
@@ -111,7 +112,7 @@ class AnalyzeGrid(object):
                 
                 del item["options"]#オプションキーは削除
                 
-                if "dekimiter" in item :del item["delimiter"]#区切り文字の情報は削除
+                if "delimiter" in item :del item["delimiter"]#区切り文字の情報は削除
                 #値の設定
                 defaultVal=""
                 if "defaultVal" in item:
@@ -129,7 +130,7 @@ class AnalyzeGrid(object):
                 #そのまま出力
                 #print(item["optionName"],":",def_ary)
                 def_dict_ary.append(item)
-            #子の定義項目が存在する
+            #子の定義項目が存在する場合の処理
             else:
                 for option,defs in zip(item["options"],def_ary):
                     #print(option["optionName"],"++++++",defs)
@@ -195,7 +196,7 @@ class AnalyzeGrid(object):
         return del_pos_ary
 
     def get_def_ary(self,defs,delimiter,protect_pattern_ary):
-        """_summary_
+        """protect_pattern_aryを除いて、定義文を区切り文字で分割していく
 
         Args:
             defs (str): 区切り文字で分割する対象の文字列
@@ -205,6 +206,8 @@ class AnalyzeGrid(object):
         Returns:
             list: 区切り文字で分割した結果のリスト
         """
+        
+        #区切り文字の文字列内の位置のリスト
         del_pos_ary=[]
         delimiter_ary=[]
         flag_multi_delimiter=False

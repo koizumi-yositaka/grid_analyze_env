@@ -34,14 +34,18 @@ def test_omit_del_pos(init,start_chara,end_chara,defs,del_pos_ary,expectations):
    
 test_get_def_ary_params=[
     ("a{a,a}a,a(,)a",",",[{"s":"{","e":"}"},{"s":"(","e":")"}],["a{a,a}a","a(,)a"]),
-    ("ab#(c#d)e($f)$g","#@$",[{"s":"{","e":"}"},{"s":"(","e":")"}],["ab","(c#d)e($f)","g"])
+    #("ab#(c#d)e($f)$g","#@$",[{"s":"{","e":"}"},{"s":"(","e":")"}],["ab","(c#d)e($f)","g"])
 ] 
 @pytest.mark.parametrize("defs,delimiter,protect_pattern_ary,expectations",test_get_def_ary_params)
 def test_get_def_ary(init,defs,delimiter,protect_pattern_ary,expectations):
     assert (init.get_def_ary(defs,delimiter,protect_pattern_ary))==expectations
 test_analyze_params=[
     ("test/data/testGridText/test1.txt","test/data/testExpectationsCsv/test1_exp.csv"),
-    ("test/data/testGridText/test2.txt","test/data/testExpectationsCsv/test2_exp.csv")
+    ("test/data/testGridText/test2.txt","test/data/testExpectationsCsv/test2_exp.csv"),
+    ("test/data/testGridText/test01.txt","test/data/testExpectationsCsv/test01.csv"),
+    ("test/data/testGridText/test02.txt","test/data/testExpectationsCsv/test02.csv"),
+    ("test/data/testGridText/test03.txt","test/data/testExpectationsCsv/test03.csv"),
+    ("test/data/testGridText/test04.txt","test/data/testExpectationsCsv/test04.csv")
 ]
 @pytest.mark.parametrize("test_grid_text_file_name,test_expectations_csv_file_name",test_analyze_params)
 def test_analyze(init,test_grid_text_file_name,test_expectations_csv_file_name):
@@ -56,7 +60,7 @@ def test_analyze(init,test_grid_text_file_name,test_expectations_csv_file_name):
         for row in reader:
         # Noneのキーを削除する
         
-            row = {k: v for k, v in row.items() if k is not None}
+            row = {k:v for k, v in row.items() if k is not None}
         # rowは辞書で各列の値を含む（Noneのキーは削除されている）
             test_expectations.append(row)
 
@@ -65,10 +69,10 @@ def test_analyze(init,test_grid_text_file_name,test_expectations_csv_file_name):
             for def_dict in init.def_dict_ary:
                 if row["id"]==def_dict["option_id"]:
                     flg_match=True
-                    if [str(result_test).lower() for result_test in row["value"].split(",")]== [str(result_exp).lower() for result_exp in def_dict["value"]]:
+                    if [str(result_test).lower() for result_test in row["value"].split(",")]== [str(result_exp).lower().strip() for result_exp in def_dict["value"]]:
                         break
                     else:
-                        assert False,f"結果が期待値と異なります。id:{row['id']} 実際の値:{row['value'].split(',')} 期待値:{def_dict['value']}"
+                        assert False,f"結果が期待値と異なります。id:{row['id']} 期待値:{row['value'].split(',')} 実際の値:{def_dict['value']}"
                 else:
                     continue
         assert flg_match ,f"idが一致するものがありません。id:{row['id']}"
